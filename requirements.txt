@@ -1,0 +1,12 @@
+alembic
+dependency-injector
+fastapi
+mysqlclient
+SQLAlchemy
+py-ulid
+passlib[bcrypt]
+uvicorn[standard]
+pydantic
+pydantic[email]
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
