@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
-from user.infra.db_models.user import User
+
+from user.domain.user import User
 
 
 class IUserRepository(metaclass=ABCMeta):
@@ -8,15 +9,15 @@ class IUserRepository(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
+    def find_by_email(self, email: str) -> User:
+        raise NotImplementedError
+
+    @abstractmethod
     def find_by_id(self, id: str) -> User:
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, user: str):
-        raise NotImplementedError
-
-    @abstractmethod
-    def find_by_email(self, email: str) -> User:
+    def update(self, user: User):
         raise NotImplementedError
 
     @abstractmethod

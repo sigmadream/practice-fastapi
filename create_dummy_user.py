@@ -1,6 +1,9 @@
 from database import SessionLocal
 from user.infra.db_models.user import User
 from datetime import datetime
+from utils.crypto import Crypto
+
+crypto = Crypto()
 
 with SessionLocal() as db:
     for i in range(50):
@@ -8,7 +11,7 @@ with SessionLocal() as db:
             id=f"UserId-{str(i).zfill(2)}",
             name=f"TestUser{i}",
             email=f"testUser{i}@app.com",
-            password="qwer1234",
+            password=crypto.encrypt("qwer1234"),
             memo=None,
             created_at=datetime.now(),
             updated_at=datetime.now(),

@@ -46,7 +46,7 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 18cd8054b0e7   mysql:8   "docker-entrypoint.s…"   24 seconds ago   Up 23 seconds   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp   mysql-fastapi
 $ docker exec -it 18cd8054b0e7 bash
 bash-5.1# mysql -u root -p
-mysql> SHOW DATABASE;
+mysql> SHOW DATABASES;
 mysql> CREATE SCHEMA `fastapi-ca`;
 ```
 
@@ -130,4 +130,11 @@ $ curl -X 'POST' \
 'http://localhost:8000/users/login' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'username=sd%40app.com&password=qwer1234'
+```
+
+```bash
+$ curl -X 'POST' \
+'http://localhost:8000/users/login' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'username=testUser0%40app.com&password=qwer1234'
 ```
