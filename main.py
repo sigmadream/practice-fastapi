@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 
 from user.interface.controllers.user_controller import router as user_routers
 from user.interface.controllers.env_controller import router as env_routers
+from note.interface.controllers.note_controller import router as note_routers
 from containers import Container
 from sync_ex import router as sync_ex_routers
 from async_ex import router as async_ex_routers
@@ -15,6 +16,8 @@ app = FastAPI()
 app.container = Container()
 app.include_router(user_routers)
 app.include_router(env_routers)
+app.include_router(note_routers)
+
 app.include_router(sync_ex_routers)
 app.include_router(async_ex_routers)
 
