@@ -1,7 +1,6 @@
 alembic
 dependency-injector
 fastapi
-mysqlclient
 SQLAlchemy
 py-ulid
 passlib[bcrypt]
